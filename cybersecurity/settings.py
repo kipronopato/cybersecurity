@@ -126,3 +126,9 @@ CSRF_COOKIE_HTTPONLY = True
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+# Static files
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"   # <-- add this
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
