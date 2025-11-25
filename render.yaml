@@ -2,7 +2,7 @@ services:
   - type: web
     name: cyberguard-ai
     env: python
-    pythonVersion: "3.12"
+    pythonVersion: "3.10"
     buildCommand: "./build-simple.sh"
     startCommand: "gunicorn cybersecurity.wsgi:application --bind 0.0.0.0:$PORT --env DJANGO_SETTINGS_MODULE=cybersecurity.settings_production"
     envVars:
@@ -13,12 +13,6 @@ services:
       - key: EMAIL_HOST_USER
         value: obernard377@gmail.com
       - key: EMAIL_HOST_PASSWORD
-        sync: false  # Set manually in Render dashboard
+        sync: false
       - key: DATABASE_URL
-        sync: false  # Render provides this for PostgreSQL
-
-databases:
-  - name: cyberguard-db
-    databaseName: cybersecurity_db
-    user: postgres
-    plan: free  # change if you want a paid plan
+        sync: false
